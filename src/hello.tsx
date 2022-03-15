@@ -22,10 +22,12 @@ export const Hello: FC = () => {
       <Form.Item name={'date'}
         // convert value from formData to DatePicker
                  getValueProps={(e) => ({
-                   value: e ? moment(e) : ''
+                   value: e ? moment(e) : null
                  })}
         // convert value from DatePicker to formData
-                 getValueFromEvent={(e) => moment(e).format('YYYY-MM-DD')}
+                 getValueFromEvent={(e) => {
+                   return e ? moment(e).format('YYYY-MM-DD') : ''
+                 }}
       >
         <DatePicker/>
       </Form.Item>
